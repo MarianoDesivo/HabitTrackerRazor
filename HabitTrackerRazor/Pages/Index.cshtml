@@ -5,9 +5,37 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <a button type="button" class="btn btn-success" asp-area="" asp-page="/Create"> 
         Agregar Registro
     </a>
 </div>
+
+<table class"table" id"records">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Records[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Records[0].Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var record in Model.Records){
+            <tr class="list-row">
+                <td>
+                    @Html.DisplayFor(modelItem => record.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => record.Quantity)
+                </td>
+                <td>
+                    <a button type="button" class="btn btn-danger" asp-page="./Delete" asp-route-id="@record.Id">Borrar</a>
+                    <a button type="button" class="btn btn-primary" asp-page="./Update" asp-route-id="@record.Id">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

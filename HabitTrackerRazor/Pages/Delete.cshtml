@@ -1,0 +1,29 @@
+﻿@page
+@model HabitTrackerRazor.Pages.DeleteModel
+@{
+}
+
+<h3>¿Está seguro que desea eliminar el registro @Model.DrinkingWater.Id?</h3>
+
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.DrinkingWater.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DrinkingWater.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DrinkingWater.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DrinkingWater.Quantity)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="DrinkingWater.Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /><br/>
+        <a asp-page="./Index">Volver al inicio.</a>
+    </form>
+</div>

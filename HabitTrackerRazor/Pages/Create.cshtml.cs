@@ -12,7 +12,7 @@ namespace HabitTrackerRazor.Pages
 
         public CreateModel(IConfiguration configuration)
         {
-            configuration = _configuration;
+            _configuration = configuration;
         }
         public IActionResult OnGet()
         {
